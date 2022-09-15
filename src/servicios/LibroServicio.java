@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package servicios;
 
 import entidades.Autor;
@@ -11,10 +7,7 @@ import entidades.Libro;
 import java.util.List;
 import persistencia.LibroDAO;
 
-/**
- *
- * @author Usuario
- */
+
 public class LibroServicio {
 
     private final LibroDAO Dao;
@@ -33,20 +26,18 @@ public class LibroServicio {
 
     public Libro crearLibro(String id, String titulo, Integer anio, Autor autor, Editorial editorial) {
         Libro libro = new Libro();
-
         try {
-
             libro.setId(id);
             libro.setTitulo(titulo);
             libro.setAlta(true);
             libro.setAnio(anio);
             libro.setAutor(autor);
             libro.setEditorial(editorial);
-
+            
             Dao.guardarLibro(libro);
             return libro;
         } catch (Exception e) {
-            System.out.println("error en el libro");
+            System.err.println("error en el libro");
             throw e;
         }
 
@@ -58,7 +49,7 @@ public class LibroServicio {
             return Dao.MostrarLibros();
 
         } catch (Exception e) {
-            System.out.println("problema en listar libros");
+            System.err.println("problema en listar libros");
             return null;
         }
 
@@ -68,7 +59,7 @@ public class LibroServicio {
         try {
             return Dao.BúsquedaPorISBN(isbn);
         } catch (Exception e) {
-            System.out.println("problema en isbn");
+            System.err.println("problema en isbn");
             return null;
         }
     }
@@ -77,7 +68,7 @@ public class LibroServicio {
         try {
             return Dao.BúsquedaPorNombreAutor(nombre);
         } catch (Exception e) {
-            System.out.println("problema en nombre");
+            System.err.println("problema en nombre");
             return null;
         }
     }
@@ -86,7 +77,7 @@ public class LibroServicio {
         try {
             return Dao.BúsquedaPorTitulo(titulo);
         } catch (Exception e) {
-            System.out.println("problema en titulo");
+            System.err.println("problema en titulo");
             return null;
         }
     }
@@ -95,8 +86,9 @@ public class LibroServicio {
         try {
             return Dao.BúsquedaPorEditorial(editorial);
         } catch (Exception e) {
-            System.out.println("poblema en editorial");
+            System.err.println("poblema en editorial");
             return null;
         }
     }
+    
 }

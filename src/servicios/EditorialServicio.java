@@ -41,7 +41,7 @@ public class EditorialServicio {
             Dao.guardarEditorial(editorial);
             return editorial;
         } catch (Exception e) {
-            System.out.println("error en el editorial");
+            System.err.println("error en el editorial");
             throw e;
         }
 
@@ -52,7 +52,7 @@ public class EditorialServicio {
         try {
             return Dao.MostrarEditorial();
         } catch (Exception e) {
-            System.out.println("problema en mostrar editorial");
+            System.err.println("problema en mostrar el editorial");
             return null;
         }
     }

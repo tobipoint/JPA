@@ -12,11 +12,11 @@ public class AutorDAO extends DAO<Autor> {
     public Autor BúsquedaAutorPorNombre(String nombre) {
         conectar();
 
-        Collection<Autor> autor = em.createQuery("SELECT a FROM autor a WHERE nombre = :nombre")
+        Collection<Autor> autor = em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre", Autor.class)
                 .setParameter("nombre", nombre).getResultList();
 
         autor.forEach((aux) -> {
-            System.out.println(aux.getNombre());
+            System.out.println(aux.toString());
         });
 
         desconectar();
@@ -25,12 +25,11 @@ public class AutorDAO extends DAO<Autor> {
 
     public Collection<Autor> MostrarAutor() {
         conectar();
-        Collection<Autor> autor = (Collection<Autor>) em.createQuery("SELECT * FROM autor ").getResultList();
-//                em.createQuery("SELECT * FROM Libro").getResultList();
+        Collection<Autor> autor = (Collection<Autor>) em.createQuery("SELECT a FROM Autor a ", Autor.class).getResultList();
+
         autor.forEach((aux) -> {
             System.out.println(aux);
         });
-
         desconectar();
         return autor;
     }

@@ -11,10 +11,13 @@ public class EditorialDAO extends DAO<Editorial> {
     
     public List<Editorial> MostrarEditorial() {
         conectar();
-        List<Editorial> editorial = em.createQuery("SELECT * FROM Libro")
+        List<Editorial> editorial = em.createQuery("SELECT e FROM Editorial e" , Editorial.class )
                 .getResultList();
         
+        editorial.forEach((aux) -> {
+            System.out.println(aux);
+        });
         desconectar();
-        return null;
+        return editorial;
     }
 }
