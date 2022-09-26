@@ -130,6 +130,7 @@ public class Libro implements Serializable {
 
     @Override
     public String toString() {
-        return "Libreria{" + "isbn=" + isbn + ", titulo=" + titulo + ", anio=" + anio + ", ejemplares=" + ejemplares + ", ejemplaresPrestados=" + ejemplaresPrestados + ", ejemplaresRestantes=" + ejemplaresRestantes + ", alta=" + alta + ", autor=" + autor + ", editorial=" + editorial + ", id=" + id + '}';
+        return "Libro{" + ", id =" + id  + "isbn=" + isbn + ", titulo=" + titulo+ "\n" + " AUTOR del libro = " + autor + ", editorial =" + editorial+ '}';
     }
+    
 }

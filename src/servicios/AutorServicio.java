@@ -31,7 +31,7 @@ public class AutorServicio {
             return autor;
 
         } catch (Exception e) {
-            System.err.println("error en el autor");
+            System.err.println("error en crear autor");
             throw e;
         }
 

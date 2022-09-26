@@ -37,17 +37,15 @@ public class LibroServicio {
             Dao.guardarLibro(libro);
             return libro;
         } catch (Exception e) {
-            System.err.println("error en el libro");
+            System.err.println("error en crear libro");
             throw e;
         }
 
     }
 
     public List<Libro> MostrarLibros() {
-
         try {
             return Dao.MostrarLibros();
-
         } catch (Exception e) {
             System.err.println("problema en listar libros");
             return null;
@@ -68,7 +66,7 @@ public class LibroServicio {
         try {
             return Dao.BúsquedaPorNombreAutor(nombre);
         } catch (Exception e) {
-            System.err.println("problema en nombre");
+            System.err.println("problema en nombre del autor");
             return null;
         }
     }

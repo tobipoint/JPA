@@ -30,9 +30,7 @@ public class EditorialServicio {
     }
 
     public Editorial crearEditorial(boolean alta, String id, String nombre) {
-
         Editorial editorial = new Editorial();
-
         try {
             editorial.setAlta(alta);
             editorial.setId(id);
@@ -41,7 +39,7 @@ public class EditorialServicio {
             Dao.guardarEditorial(editorial);
             return editorial;
         } catch (Exception e) {
-            System.err.println("error en el editorial");
+            System.err.println("error en crear editorial");
             throw e;
         }
 
